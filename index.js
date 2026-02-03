@@ -20,7 +20,8 @@ submit.addEventListener("click", () => {
   const button = document.createElement('button');
   const span = document.createElement('span')
 
-  button.textContent = "🗑️"; // had to look up textContent
+  li.classList.add('task-item')
+  button.textContent = "✕"; // had to look up textContent
   button.classList.add('trash-btn'); // had to look up adding class in js
   span.textContent = textInput.value;
   span.classList.add('task')
@@ -37,18 +38,27 @@ submit.addEventListener("click", () => {
 //-------------------------------------------
 ul.addEventListener("click", (item) => {
   // item.target -> exact element that is clicked...
-  const currentLi = item.target.parentNode; // <li>
+  // const currentLi = item.target.parentNode; // <li>
+  const currentLi = item.target.closest("li"); // safer version using .closest()
   const parentUl = currentLi.parentNode; // <ul>
+  const span = currentLi.querySelector('.task');
 
   if(item.target.classList.contains('trash-btn')){ // had to look this up
     parentUl.removeChild(currentLi);
     return; // need this or it breaks the other if statement
   }
 
-  if(item.target.classList.contains('task')){ // marking tasks
-    // console.log(item.target.textContent);
-    item.target.classList.toggle('task-complete'); // had to look up toggle()
-  }
+  // apparently toggle() just works like this
+  span.classList.toggle('span-crossed');
+  currentLi.classList.toggle('task-item-complete')
+
+  // if(item.target.classList.contains('task-item')){ // marking tasks
+  //   // console.log(item.target.textContent);
+  //   currentLi.classList.toggle('task-item-complete') // had to look up toggle()
+  //   if(item.target.classList.contains('task')){
+  //     item.target.classList.toggle('span-crossed');
+  //   }
+  // }
 });
 
 

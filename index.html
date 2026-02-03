@@ -8,22 +8,26 @@
   <script defer src="./index.js"></script>
 </head>
 <body>
-  <header><h1>To Do List Workshop</h1></header>
-  <section>
+  <div class="main-cnt">
+    <header><h1>To Do List Workshop</h1></header>
+    <section>
 
-    <div class="sec-top-ctn">
-      <label for="text-input">Add a task and submit</label>
-      <div>
-        <input type="text" name="task" id="text-input" placeholder="'try not to die'" class="text-input">
-        <input type="submit" value="Submit" class="submit-btn">
+      <div class="sec-top-ctn">
+        <div class="title-cnt"><span class="prompt">Add a task and submit</span></div>
+        <div class="input-cnt">
+          <input type="text" name="task" id="text-input" placeholder="'type in a task'" class="text-input">
+          <input type="submit" value="Submit" class="submit-btn">
+        </div>
       </div>
-    </div>
 
-    <ul class="task-ul">
+      <div class="list-cnt">
+        <ul class="task-ul">
+      </div>
 
-    </ul>
+      </ul>
 
-  </section>
+    </section>
+  </div>
 
 </body>
 </html>
